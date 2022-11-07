@@ -1,4 +1,4 @@
-const { task } = require("hardhat/config")
+import { task } from "hardhat/config"
 
 task(
     "accounts-balance",
@@ -9,7 +9,9 @@ task(
         const address = await account.getAddress()
         const balance = await account.getBalance()
         console.log(
-            `Account ${address} contains ${(balance * 1e-18)
+            `Account ${address} contains ${(
+                parseInt(balance.toString()) * 1e-18
+            )
                 .toString()
                 .slice(0, 4)} ETH`
         )
